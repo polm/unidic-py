@@ -26,7 +26,7 @@ def download_and_clean(version, url, dirname, delfiles):
     """
     cdir = os.path.dirname(os.path.abspath(__file__))
     fname = cdir + '/unidic.zip'
-    print("Downloading UniDic v{}...".format(version))
+    print("Downloading UniDic v{}...".format(version), file=sys.stderr)
     download_file(url, fname)
 
     with zipfile.ZipFile(fname, 'r') as zf:
@@ -46,7 +46,7 @@ def download_and_clean(version, url, dirname, delfiles):
     with open(dicdir + '/version', 'w') as vfile:
         vfile.write('unidic-{}'.format(version))
 
-    print("Downloaded UniDic v{} to {}".format(version, dicdir))
+    print("Downloaded UniDic v{} to {}".format(version, dicdir), file=sys.stderr)
 
 def download(version):
     if version in DICTS:

@@ -12,7 +12,7 @@ DICDIR = os.path.join(_curdir, 'dicdir')
 VERSION = get_version(DICDIR)
 
 if VERSION == '0':
-    print("No data installed, downloading 2.1.2.")
+    print("No data installed, downloading 2.1.2.", file=sys.stderr)
     from .download import download
     download('2.1.2')
 
