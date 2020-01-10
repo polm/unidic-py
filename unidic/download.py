@@ -46,6 +46,10 @@ def download_and_clean(version, url, dirname, delfiles):
     with open(dicdir + '/version', 'w') as vfile:
         vfile.write('unidic-{}'.format(version))
 
+    # Write a dummy mecabrc
+    with open(dicdir + '/mecabrc', 'w') as mecabrc:
+        mecabrc.write('# This is a dummy file.')
+
     print("Downloaded UniDic v{} to {}".format(version, dicdir), file=sys.stderr)
 
 def download(version):
