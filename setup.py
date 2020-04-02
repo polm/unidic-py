@@ -1,6 +1,18 @@
 import pathlib
 import setuptools
 from distutils.core import setup
+import os
+
+from download import download_latest
+
+_curdir = os.path.dirname(__file__)
+DICDIR = os.path.join(_curdir, 'dicdir')
+
+if not os.path.exists(DICDIR + '/version'):
+    print("Downloading dictionary data.")
+    download_latest()
+
+# This will download the data if it's not present
 
 setup(name='unidic', 
       version='0.0.5',

@@ -3,6 +3,7 @@ import shutil
 import zipfile
 import os
 import sys
+from wasabi import msg
 
 def download_file(url, fname):
     with requests.get(url, stream=True) as r:
@@ -11,6 +12,17 @@ def download_file(url, fname):
 
     return fname
 
+def get_json(url, desc):
+    r = requests.get(url)
+    if r.status_code != 200:
+        msg.fail(
+            "Server error ({})".format(r.status_code),
+            "Couldn't fetch {}. If this error persists please open an issue."
+            " http://github.com/polm/fugashi/issues/".format(desc),
+            exits=1,
+        )
+    return r.json()
+
 DICTS = {
         '2.1.2': {
             'url': 'https://unidic.ninjal.ac.jp/unidic_archive/cwj/2.1.2/unidic-mecab-2.1.2_bin.zip',
@@ -18,7 +30,7 @@ DICTS = {
             'delfiles': []},
         }
         
-def download_and_clean(version, url, dirname, delfiles):
+def download_and_clean(version, url, dirname='unidic', delfiles=[]):
     """Download unidic and prep the dicdir.
 
     This downloads the zip file from the source, extracts it, renames the
@@ -60,3 +72,14 @@ def download(version):
         print("Unknown version:", version)
         print("Available versions:", ", ".join(DICTS))
         sys.exit(1)
+
+DICT_INFO = "https://raw.githubusercontent.com/polm/unidic-py/master/dicts.json"
+DOWNLOAD_BASE = "https://github.com/polm/unidic-py/releases/download/"
+
+def download_latest():
+    res = get_json(DICT_INFO, "dictionary info")
+    version = res['latest']
+    vtemp = "unidic-{v}/unidic-{v}.zip"
+    download_url = DOWNLOAD_BASE + vtemp.format(v=version)
+    download_and_clean(version, download_url)
+
