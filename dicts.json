@@ -1,1 +1,4 @@
-{"latest": "0.0.5-test"}
+{"latest": {
+  "url":""https://github.com/polm/unidic-py/releases/download/1.0.0a1/unidic.zip",
+  "version":"2.3.0" } 
+}
