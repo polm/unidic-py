@@ -4,6 +4,25 @@ import zipfile
 import os
 import sys
 from wasabi import msg
+from urllib.request import urlretrieve
+from tqdm import tqdm
+
+# This is used to show progress when downloading.
+# see here: https://github.com/tqdm/tqdm#hooks-and-callbacks
+class TqdmUpTo(tqdm):
+    """Provides `update_to(n)` which uses `tqdm.update(delta_n)`."""
+    def update_to(self, b=1, bsize=1, tsize=None):
+        """
+        b  : int, optional
+            Number of blocks transferred so far [default: 1].
+        bsize  : int, optional
+            Size of each block (in tqdm units) [default: 1].
+        tsize  : int, optional
+            Total size (in tqdm units). If [default: None] remains unchanged.
+        """
+        if tsize is not None:
+            self.total = tsize
+        self.update(b * bsize - self.n)  # will also set self.n = b * bsize
 
 def download_file(url, fname):
     with requests.get(url, stream=True) as r:
@@ -12,24 +31,25 @@ def download_file(url, fname):
 
     return fname
 
+def download_progress(url, fname):
+    """Download a file and show a progress bar."""
+    with TqdmUpTo(unit='B', unit_scale=True, miniters=1,
+              desc=url.split('/')[-1]) as t:  # all optional kwargs
+        urlretrieve(url, filename=fname, reporthook=t.update_to, data=None)
+        t.total = t.n
+    return fname
+
 def get_json(url, desc):
     r = requests.get(url)
     if r.status_code != 200:
         msg.fail(
             "Server error ({})".format(r.status_code),
             "Couldn't fetch {}. If this error persists please open an issue."
-            " http://github.com/polm/fugashi/issues/".format(desc),
+            " http://github.com/polm/unidic-py/issues/".format(desc),
             exits=1,
         )
     return r.json()
 
-DICTS = {
-        '2.1.2': {
-            'url': 'https://unidic.ninjal.ac.jp/unidic_archive/cwj/2.1.2/unidic-mecab-2.1.2_bin.zip',
-            'dirname': 'unidic-mecab-2.1.2_bin',
-            'delfiles': []},
-        }
-        
 def download_and_clean(version, url, dirname='unidic', delfiles=[]):
     """Download unidic and prep the dicdir.
 
@@ -37,9 +57,11 @@ def download_and_clean(version, url, dirname='unidic', delfiles=[]):
     resulting directory, and removes large files not used at runtime.  
     """
     cdir = os.path.dirname(os.path.abspath(__file__))
+    cdir = os.path.join(cdir, 'unidic')
     fname = cdir + '/unidic.zip'
     print("Downloading UniDic v{}...".format(version), file=sys.stderr)
-    download_file(url, fname)
+    download_progress(url, fname)
+    print("Finished download.")
 
     with zipfile.ZipFile(fname, 'r') as zf:
         zf.extractall(cdir)
@@ -64,22 +86,14 @@ def download_and_clean(version, url, dirname='unidic', delfiles=[]):
 
     print("Downloaded UniDic v{} to {}".format(version, dicdir), file=sys.stderr)
 
-def download(version):
-    if version in DICTS:
-        vdata = DICTS[version]
-        download_and_clean(version, vdata['url'], vdata['dirname'], vdata['delfiles'])
-    else:
-        print("Unknown version:", version)
-        print("Available versions:", ", ".join(DICTS))
-        sys.exit(1)
-
 DICT_INFO = "https://raw.githubusercontent.com/polm/unidic-py/master/dicts.json"
 DOWNLOAD_BASE = "https://github.com/polm/unidic-py/releases/download/"
 
 def download_latest():
     res = get_json(DICT_INFO, "dictionary info")
     version = res['latest']
-    vtemp = "unidic-{v}/unidic-{v}.zip"
+    vtemp = "{v}/unidic-{v}.zip"
     download_url = DOWNLOAD_BASE + vtemp.format(v=version)
+    print("download url:", download_url)
     download_and_clean(version, download_url)
 

@@ -15,7 +15,7 @@ if not os.path.exists(DICDIR + '/version'):
 # This will download the data if it's not present
 
 setup(name='unidic', 
-      version='0.0.5',
+      version='1.0.0a1',
       author="Paul O'Leary McCann",
       author_email="polm@dampfkraft.com",
       description="UniDic packaged for Python",
@@ -23,5 +23,5 @@ setup(name='unidic',
       long_description_content_type="text/markdown",
       url="https://github.com/polm/unidic-py",
       packages=setuptools.find_packages(),
-      package_data={'unidic': ['dicdir/*']}
+      package_data={'unidic': ['dicdir/*']},
       )
