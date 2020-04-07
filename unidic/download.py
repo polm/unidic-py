@@ -89,11 +89,18 @@ def download_and_clean(version, url, dirname='unidic', delfiles=[]):
 DICT_INFO = "https://raw.githubusercontent.com/polm/unidic-py/master/dicts.json"
 DOWNLOAD_BASE = "https://github.com/polm/unidic-py/releases/download/"
 
-def download_latest():
+def download_version(ver="latest"):
     res = get_json(DICT_INFO, "dictionary info")
-    version = res['latest']
-    vtemp = "{v}/unidic-{v}.zip"
-    download_url = DOWNLOAD_BASE + vtemp.format(v=version)
-    print("download url:", download_url)
-    download_and_clean(version, download_url)
+    print(res)
+    try:
+        dictinfo = res[ver]
+    except KeyError:
+        print('Unknown version "{}".'.format(ver))
+        print("Known versions:")
+        for key, val in res.items():
+            print("\t", key, "({})".format(val['version']))
+
+    print("download url:", dictinfo['url'])
+    print("Dictionary version:", dictinfo['version'])
+    download_and_clean(dictinfo['version'], dictinfo['url'])
 
