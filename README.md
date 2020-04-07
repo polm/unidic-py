@@ -5,6 +5,11 @@ with pip.
 
 Currently it supports 2.3.0, the latest version of UniDic. **Note this will take up 2GB on disk after install.** If you want a small package, try [unidic-lite](https://github.com/polm/unidic-lite).
 
+After installing via pip, you need to download the dictionary using the
+following command:
+
+    python -m unidic download
+
 Example use with [fugashi](https://github.com/polm/fugashi), though [mecab-python3](https://github.com/samurait/mecab-python3) works the same way:
 
     import fugashi
