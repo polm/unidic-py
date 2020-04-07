@@ -3,7 +3,7 @@
 This is a version of [UniDic](https://unidic.ninjal.ac.jp/) packaged for use
 with pip. 
 
-Right now it only supports the somewhat old 2.1.2 version of UniDic.
+Currently it supports 2.3.0, the latest version of UniDic. **Note this will take up 2GB on disk after install.** If you want a small package, try [unidic-lite](https://github.com/polm/unidic-lite).
 
 Example use with [fugashi](https://github.com/polm/fugashi), though [mecab-python3](https://github.com/samurait/mecab-python3) works the same way:
 
