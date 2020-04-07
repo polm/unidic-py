@@ -3,8 +3,11 @@ import sys
 from wasabi import msg
 
 def get_version(dicdir):
-    with open(dicdir + '/version') as vfile:
-        return vfile.read().strip()
+    try:
+        with open(dicdir + '/version') as vfile:
+            return vfile.read().strip()
+    except FileNotFoundError:
+        return '0'
 
 _curdir = os.path.dirname(__file__)
 
