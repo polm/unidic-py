@@ -57,7 +57,7 @@ def download_and_clean(version, url, dirname='unidic', delfiles=[]):
     resulting directory, and removes large files not used at runtime.  
     """
     cdir = os.path.dirname(os.path.abspath(__file__))
-    fname = cdir + '/unidic.zip'
+    fname = os.path.join(cdir, 'unidic.zip')
     print("Downloading UniDic v{}...".format(version), file=sys.stderr)
     download_progress(url, fname)
     print("Finished download.")
@@ -70,17 +70,19 @@ def download_and_clean(version, url, dirname='unidic', delfiles=[]):
     if os.path.isdir(dicdir):
         shutil.rmtree(dicdir)
 
-    shutil.move(cdir + '/' + dirname, dicdir)
+    outdir = os.path.join(cdir, dirname)
+    shutil.move(outdir, dicdir)
 
     for dfile in delfiles:
-        os.remove(dicdir + '/' + dfile)
+        os.remove(os.path.join(dicdir, dfile))
 
     # save a version file so we can tell what it is
-    with open(dicdir + '/version', 'w') as vfile:
+    vpath = os.path.join(dicdir, 'version')
+    with open(vpath, 'w') as vfile:
         vfile.write('unidic-{}'.format(version))
 
     # Write a dummy mecabrc
-    with open(dicdir + '/mecabrc', 'w') as mecabrc:
+    with open(os.path.join(dicdir, 'mecabrc'), 'w') as mecabrc:
         mecabrc.write('# This is a dummy file.')
 
     print("Downloaded UniDic v{} to {}".format(version, dicdir), file=sys.stderr)

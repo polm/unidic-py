@@ -3,7 +3,10 @@
 This is a version of [UniDic](https://unidic.ninjal.ac.jp/) packaged for use
 with pip. 
 
-Currently it supports 2.3.0, the latest version of UniDic. **Note this will take up 2GB on disk after install.** If you want a small package, try [unidic-lite](https://github.com/polm/unidic-lite).
+Currently it supports 2.3.0, the latest version of UniDic. **Note this will
+take up 1GB on disk after install and can take a long time to download.** If
+you want a small package, try
+[unidic-lite](https://github.com/polm/unidic-lite).
 
 After installing via pip, you need to download the dictionary using the
 following command:
