@@ -57,7 +57,6 @@ def download_and_clean(version, url, dirname='unidic', delfiles=[]):
     resulting directory, and removes large files not used at runtime.  
     """
     cdir = os.path.dirname(os.path.abspath(__file__))
-    cdir = os.path.join(cdir, 'unidic')
     fname = cdir + '/unidic.zip'
     print("Downloading UniDic v{}...".format(version), file=sys.stderr)
     download_progress(url, fname)
