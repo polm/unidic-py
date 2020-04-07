@@ -90,7 +90,6 @@ DOWNLOAD_BASE = "https://github.com/polm/unidic-py/releases/download/"
 
 def download_version(ver="latest"):
     res = get_json(DICT_INFO, "dictionary info")
-    print(res)
     try:
         dictinfo = res[ver]
     except KeyError:
