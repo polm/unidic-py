@@ -25,7 +25,9 @@ Example use with [fugashi](https://github.com/polm/fugashi), though [mecab-pytho
 The modern Japanese UniDic is available under the GPL, LGPL, or BSD license,
 [see here](https://unidic.ninjal.ac.jp/download#unidic_bccwj). UniDic is
 developed by [NINJAL](https://www.ninjal.ac.jp/), the National Institute for
-Japanese Language and Linguistics. 
+Japanese Language and Linguistics. UniDic is copyrighted by the UniDic
+Consortium and is distributed here under the terms of the [BSD
+License](./LICENSE.unidic).
 
 The code in this repository is not written or maintained by NINJAL. The code is
 available under the MIT or WTFPL License, as you prefer.
