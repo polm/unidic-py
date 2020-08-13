@@ -4,7 +4,7 @@ from distutils.core import setup
 import os
 
 setup(name='unidic', 
-      version='1.0.2a1',
+      version='1.0.2',
       author="Paul O'Leary McCann",
       author_email="polm@dampfkraft.com",
       description="UniDic packaged for Python",
