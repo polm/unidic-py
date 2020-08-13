@@ -88,7 +88,6 @@ def download_and_clean(version, url, dirname='unidic', delfiles=[]):
     print("Downloaded UniDic v{} to {}".format(version, dicdir), file=sys.stderr)
 
 DICT_INFO = "https://raw.githubusercontent.com/polm/unidic-py/master/dicts.json"
-DOWNLOAD_BASE = "https://github.com/polm/unidic-py/releases/download/"
 
 def download_version(ver="latest"):
     res = get_json(DICT_INFO, "dictionary info")
