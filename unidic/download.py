@@ -66,7 +66,7 @@ def download_and_clean(version, url, dirname='unidic', delfiles=[]):
         zf.extractall(cdir)
     os.remove(fname)
 
-    dicdir = cdir + '/dicdir'
+    dicdir = os.path.join(cdir, 'dicdir')
     if os.path.isdir(dicdir):
         shutil.rmtree(dicdir)
 
