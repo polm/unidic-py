@@ -20,6 +20,14 @@ Example use with [fugashi](https://github.com/polm/fugashi), though [mecab-pytho
     tagger = fugashi.Tagger('-d{}'.format(unidic.DICDIR))
     # that's it!
 
+## Differences from the Official UniDic Release
+
+This has a few changes from the official UniDic release to make it easier to use.
+
+- entries for 令和 have been added
+- single-character numeric and alphabetic words have been deleted
+- `unk.def` has been modified so unknown punctuation won't be marked as a noun
+
 # License
 
 The modern Japanese UniDic is available under the GPL, LGPL, or BSD license,
