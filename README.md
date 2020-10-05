@@ -13,11 +13,14 @@ following command:
 
     python -m unidic download
 
-Example use with [fugashi](https://github.com/polm/fugashi), though [mecab-python3](https://github.com/samurait/mecab-python3) works the same way:
+With [fugashi](https://github.com/polm/fugashi) or
+[mecab-python3](https://github.com/samurait/mecab-python3) unidic will be used
+automatically when installed, though if you want you can manually pass the
+MeCab arguments:
 
     import fugashi
     import unidic
-    tagger = fugashi.Tagger('-d{}'.format(unidic.DICDIR))
+    tagger = fugashi.Tagger('-d "{}"'.format(unidic.DICDIR))
     # that's it!
 
 ## Differences from the Official UniDic Release
