@@ -3,7 +3,7 @@
   "url" : "https://github.com/polm/unidic-py/releases/download/v1.0.2/unidic.zip",
   "version" : "2.3.0" },
 
-  "testing": {
+  "aws": {
   "url" : "https://cotonoha-dic.s3-ap-northeast-1.amazonaws.com/unidic.zip",
-  "version" : "2.3.0+1" }
+  "version" : "2.3.0+2020-10-08" }
 }
