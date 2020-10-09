@@ -7,7 +7,7 @@ Currently it supports 2.3.0, the latest version of UniDic. **Note this will
 take up 1GB on disk after install.** If you want a small package, try
 [unidic-lite](https://github.com/polm/unidic-lite).
 
-The data for this dictionary is generally hosted as part of the AWS Open Data
+The data for this dictionary is hosted as part of the AWS Open Data
 Sponsorship Program. You can read the announcement
 [here](https://aws.amazon.com/jp/blogs/news/published-unidic-mecab-on-aws-open-data/).
 
