@@ -1,19 +1,20 @@
 {
-  "1.0.2": {
-    "url" : "https://github.com/polm/unidic-py/releases/download/v1.0.2/unidic.zip",
-    "version" : "2.3.0" 
-  },
-
   "latest": {
     "url" : "https://cotonoha-dic.s3-ap-northeast-1.amazonaws.com/unidic.zip",
     "version" : "2.3.0+2020-10-08" 
   },
-
+  "3.1.0a1": {
+    "url" : "https://cotonoha-dic.s3-ap-northeast-1.amazonaws.com/unidic-3.1.0a1.zip",
+    "version" : "3.1.0+2021-08-31" 
+  },
+  "1.0.2": {
+    "url" : "https://github.com/polm/unidic-py/releases/download/v1.0.2/unidic.zip",
+    "version" : "2.3.0" 
+  },
   "aws": {
     "url" : "https://cotonoha-dic.s3-ap-northeast-1.amazonaws.com/unidic.zip",
     "version" : "2.3.0+2020-10-08" 
   },
-
   "blank": {
     "url": "https://www.dampfkraft.com/unidic-blank.zip",
     "version": "blank"
