@@ -1,5 +1,13 @@
 {
   "latest": {
+    "url" : "https://cotonoha-dic.s3-ap-northeast-1.amazonaws.com/unidic-3.1.0.zip",
+    "version" : "3.1.0+2021-08-31"
+  },
+  "3.1.0+2021-08-31": {
+    "url" : "https://cotonoha-dic.s3-ap-northeast-1.amazonaws.com/unidic-3.1.0.zip",
+    "version" : "3.1.0+2021-08-31"
+  },
+  "2.3.0+2020-10-08": {
     "url" : "https://cotonoha-dic.s3-ap-northeast-1.amazonaws.com/unidic.zip",
     "version" : "2.3.0+2020-10-08" 
   },
