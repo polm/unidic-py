@@ -16,3 +16,4 @@
 grep -Ev '^([A-Za-zＡ-Ｚａ-ｚ]|[0-9０-９]*),' "$1"
 
 # In Unidic 2.3.0 this removes 232 entries.
+# In Unidic 3.1.0 this removes 233 entries.
