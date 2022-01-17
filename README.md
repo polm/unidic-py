@@ -3,8 +3,8 @@
 This is a version of [UniDic](https://ccd.ninjal.ac.jp/unidic/) packaged for use
 with pip. 
 
-Currently it supports 2.3.0, the latest version of UniDic. **Note this will
-take up 1GB on disk after install.** If you want a small package, try
+Currently it supports 3.1.0, the latest version of UniDic. **Note this will
+take up 770MB on disk after install.** If you want a small package, try
 [unidic-lite](https://github.com/polm/unidic-lite).
 
 The data for this dictionary is hosted as part of the AWS Open Data
