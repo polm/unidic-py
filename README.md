@@ -1,7 +1,7 @@
 # unidic-py
 
-This is a version of [UniDic](https://ccd.ninjal.ac.jp/unidic/) packaged for use
-with pip. 
+This is a version of [UniDic](https://ccd.ninjal.ac.jp/unidic/) for
+Contemporary Written Japanese packaged for use with pip.
 
 Currently it supports 3.1.0, the latest version of UniDic. **Note this will
 take up 770MB on disk after install.** If you want a small package, try
