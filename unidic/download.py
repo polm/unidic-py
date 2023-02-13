@@ -1,11 +1,12 @@
-import requests
-import shutil
-import zipfile
 import os
+import shutil
 import sys
-from wasabi import msg
-from urllib.request import urlretrieve
+import zipfile
+
+import requests
 from tqdm import tqdm
+from wasabi import msg
+
 
 # This is used to show progress when downloading.
 # see here: https://github.com/tqdm/tqdm#hooks-and-callbacks
@@ -33,11 +34,14 @@ def download_file(url, fname):
 
 def download_progress(url, fname):
     """Download a file and show a progress bar."""
-    with TqdmUpTo(unit='B', unit_scale=True, miniters=1,
-              desc=url.split('/')[-1]) as t:  # all optional kwargs
-        urlretrieve(url, filename=fname, reporthook=t.update_to, data=None)
-        t.total = t.n
-    return fname
+    file_size = int(requests.head(url).headers["content-length"])
+    response = requests.get(url, stream=True)
+    progress_bar = tqdm(total=file_size, unit="B", unit_scale=True)
+    with open(fname, "wb") as fp:
+        for chunk in response.iter_content(chunk_size=1024**2):
+            fp.write(chunk)
+            progress_bar.update(len(chunk))
+        progress_bar.close()
 
 def get_json(url, desc):
     r = requests.get(url)
