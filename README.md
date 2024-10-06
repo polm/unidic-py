@@ -34,7 +34,7 @@ This has a few changes from the official UniDic release to make it easier to use
 - single-character numeric and alphabetic words have been deleted
 - `unk.def` has been modified so unknown punctuation won't be marked as a noun
 
-See the `extras` directory for details on how to replicate the build process.
+See the `extras` directory for details on how to replicate the build process
 
 ## Fields
 
