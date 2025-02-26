@@ -73,7 +73,7 @@ by MeCab.
 UniDic fields are defined at [NINJAL's UniDic FAQ page][faq]. unidic-lite uses
 a subset of the fields in the most recent version.
 
-[faq]: https://ccd.ninjal.ac.jp/unidic/faq
+[faq]: https://clrd.ninjal.ac.jp/unidic/faq.html
 
 IPADic fields are as follows:
 
@@ -90,7 +90,7 @@ IPADic fields are as follows:
 
 UniDic is developed by NINJAL. Here are some resources on UniDic:
 
-- [UniDic home page](https://ccd.ninjal.ac.jp/unidic/faq)
+- [UniDic home page](https://clrd.ninjal.ac.jp/unidic/)
 - [Universal Dependencies for Japanese](https://www.semanticscholar.org/paper/Universal-Dependencies-for-Japanese-Tanaka-Miyao/064b601542d27471e397f8df811f0ddb54824113)
 
 The MeCab documentation covers dictionary formats and tokenizer options. It

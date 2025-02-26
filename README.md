@@ -1,6 +1,6 @@
 # unidic-py
 
-This is a version of [UniDic](https://ccd.ninjal.ac.jp/unidic/) for
+This is a version of [UniDic](https://clrd.ninjal.ac.jp/unidic/) for
 Contemporary Written Japanese packaged for use with pip.
 
 Currently it supports 3.1.0, the latest version of UniDic. **Note this will
@@ -132,7 +132,7 @@ type,pos1,pos2,pos3,pos4
 # License
 
 The modern Japanese UniDic is available under the GPL, LGPL, or BSD license,
-[see here](https://ccd.ninjal.ac.jp/unidic/download#unidic_bccwj). UniDic is
+[see here](https://clrd.ninjal.ac.jp/unidic/commerce_use.html). UniDic is
 developed by [NINJAL](https://www.ninjal.ac.jp/), the National Institute for
 Japanese Language and Linguistics. UniDic is copyrighted by the UniDic
 Consortium and is distributed here under the terms of the [BSD
