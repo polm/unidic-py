@@ -16,6 +16,10 @@ following command:
 
     python -m unidic download
 
+Additionally you can specify custom version and URL arguments demonstrated as such:
+
+    python -m unidic download "3.1.0+2021-08-31" "https://cotonoha-dic.s3-ap-northeast-1.amazonaws.com/unidic-3.1.0.zip"
+
 With [fugashi](https://github.com/polm/fugashi) or
 [mecab-python3](https://github.com/samurait/mecab-python3) unidic will be used
 automatically when installed, though if you want you can manually pass the
